@@ -1,6 +1,10 @@
+# config/routes.rb
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      get 'messages/random', to: 'messages#random_greeting' # Update this line
+    end
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get '/random_greeting', to: 'api/v1/messages#random_greeting'
 end
